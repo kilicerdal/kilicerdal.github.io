@@ -24,3 +24,12 @@ python3 -m http.server 8765 --bind 127.0.0.1
 ```
 
 Open `http://127.0.0.1:8765/`, then follow the privacy and terms links. Check the displayed content against actual application behavior before publishing a disclosure update. A static page or policy document is not proof of compliance or a backend security control.
+
+## Static validation and review scope
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 scripts/check_site.py
+```
+
+CI validates this small site's HTML structure, internal links, required public sections and review metadata without calling external services. It is not a full HTML-standard validator or an application/privacy audit. [Owner, review scope and change process](docs/DISCLOSURE_REVIEW.md). Private application details remain outside this public repository.
